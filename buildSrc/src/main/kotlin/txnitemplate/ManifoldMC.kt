@@ -7,7 +7,8 @@ class ManifoldMC {
             loader: String,
             parent: File,
             mcString: String,
-            isActive: Boolean
+            isActive: Boolean,
+            clearMainProject: Boolean
         ) {
             val mcVers = listOf("1.18.2", "1.19.2", "1.20.1", "1.21.1")
             val mcIndex = mcVers.indexOf(mcString)
@@ -71,10 +72,12 @@ class ManifoldMC {
                 sb.append("\n")
             }
 
-            File(parent, "build.properties").writeText(sb.toString())
-
             if (isActive)
                 File(parent, "../../src/main/build.properties").writeText(sb.toString())
+
+            if (clearMainProject)
+                File(parent, "../../src/main/build.properties").delete()
         }
     }
 }
+

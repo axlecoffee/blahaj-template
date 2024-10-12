@@ -23,6 +23,7 @@ import org.gradle.api.JavaVersion
 import org.gradle.api.publish.PublishingExtension
 import org.gradle.api.publish.maven.MavenPublication
 import org.gradle.kotlin.dsl.*
+import systems.manifold.ManifoldExtension
 
 @Suppress("MemberVisibilityCanBePrivate", "unused")
 open class TxniTemplateBuild internal constructor(val project: Project)  {
@@ -56,6 +57,9 @@ open class TxniTemplateBuild internal constructor(val project: Project)  {
 
             base { archivesName.set("${mod.id}-${mod.loader}") }
         }
+
+        // The manifold Gradle plugin version. Update this if you update your IntelliJ Plugin!
+        project.extensions.getByType<ManifoldExtension>().apply { manifoldVersion = "2024.1.34" }
 
         // Loom config
         project.loom(utils.loomSetup(this))

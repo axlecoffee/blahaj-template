@@ -5,7 +5,7 @@ plugins {
     id("co.uzzu.dotenv.gradle") version "4.0.0"
     //id("dev.architectury.loom") version "1.7-SNAPSHOT" apply false
     id("me.modmuss50.mod-publish-plugin") apply false
-    id("systems.manifold.manifold-gradle-plugin") version "0.0.2-alpha" apply false
+    id("systems.manifold.manifold-gradle-plugin") apply false
 }
 
 stonecutter active "1.20.1-forge" /* [SC] DO NOT EDIT */

@@ -3,9 +3,14 @@ package utils
 import TxniTemplateBuild
 import gradle.kotlin.dsl.accessors._523dc74e2e9552463686721a7434f18b.*
 import org.gradle.kotlin.dsl.DependencyHandlerScope
+import org.gradle.kotlin.dsl.getByType
+import systems.manifold.ManifoldExtension
 
 fun dependencies(template : TxniTemplateBuild): (DependencyHandlerScope).() -> Unit = { template.apply {
     minecraft("com.mojang:minecraft:${mod.mcVersion}")
+
+    // apply the Manifold processor, do not remove this unless you want to swap back to Stonecutter preprocessor
+    implementation(annotationProcessor("systems.manifold:manifold-preprocessor:${project.extensions.getByType<ManifoldExtension>().manifoldVersion.get()}")!!)
 
     compileOnly("org.projectlombok:lombok:1.18.34")
     annotationProcessor("org.projectlombok:lombok:1.18.34")

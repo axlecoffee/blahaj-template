@@ -56,7 +56,7 @@ plugins {
 }
 
 // The manifold Gradle plugin version. Update this if you update your IntelliJ Plugin!
-manifold { manifoldVersion = "2024.1.34" }
+//manifold { manifoldVersion = "2024.1.34" }
 
 txnitemplate {
 	sc = stonecutter
@@ -76,9 +76,4 @@ repositories {
 	maven("https://raw.githubusercontent.com/Fuzss/modresources/main/maven/")
 	maven("https://maven.parchmentmc.org")
 	maven("https://maven.su5ed.dev/releases")
-}
-
-dependencies {
-	// apply the Manifold processor, do not remove this unless you want to swap back to Stonecutter preprocessor
-	implementation(annotationProcessor("systems.manifold:manifold-preprocessor:${manifold.manifoldVersion.get()}")!!)
 }

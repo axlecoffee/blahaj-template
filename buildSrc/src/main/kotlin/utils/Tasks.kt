@@ -43,6 +43,13 @@ fun tasks(template : TxniTemplateBuild) : TaskContainer.() -> Unit = { template.
             exclude("fabric.mod.json")
     }
 
+    project.tasks.register("setupManifoldPreprocessors") {
+        group = "build"
+        ManifoldMC.setupPreprocessor(ArrayList(), mod.loader, project.projectDir, mod.mcVersion, sc.active.project == sc.current.project, true)
+    }
+
+    project.tasks.named("setupChiseledBuild") { finalizedBy("setupManifoldPreprocessors") }
+
     named<RemapJarTask>("remapJar") {
         if (mod.isNeo) {
             atAccessWideners.add("${mod.id}.accesswidener")
@@ -62,7 +69,14 @@ fun tasks(template : TxniTemplateBuild) : TaskContainer.() -> Unit = { template.
         options.compilerArgs.add("-Xplugin:Manifold")
         // modify the JavaCompile task and inject our auto-generated Manifold symbols
         if(!this.name.startsWith("_")) { // check the name, so we don't inject into Forge internal compilation
-            ManifoldMC.setupPreprocessor(options.compilerArgs, mod.loader, project.projectDir, mod.mcVersion, sc.active.project == sc.current.project)
+            ManifoldMC.setupPreprocessor(
+                options.compilerArgs,
+                mod.loader,
+                project.projectDir,
+                mod.mcVersion,
+                sc.active.project == sc.current.project,
+                false
+            )
         }
     }
 

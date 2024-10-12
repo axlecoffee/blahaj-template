@@ -1,10 +1,9 @@
-﻿import dev.kikugie.stonecutter.StonecutterBuild
-
-plugins {
+﻿plugins {
     `java-gradle-plugin`
     `kotlin-dsl`
     `maven-publish`
     id("me.modmuss50.mod-publish-plugin") version "0.6.3" apply false
+    id("systems.manifold.manifold-gradle-plugin") version "0.0.2-alpha" apply false
 }
 
 gradlePlugin {
@@ -31,6 +30,6 @@ repositories {
 dependencies {
     implementation("me.modmuss50:mod-publish-plugin:0.6.3")
     implementation("dev.architectury.loom:dev.architectury.loom.gradle.plugin:1.7-SNAPSHOT")
-
+    implementation("systems.manifold:manifold-gradle-plugin:0.0.2-alpha")
     implementation("dev.kikugie:stonecutter:0.5-alpha.4")
 }
