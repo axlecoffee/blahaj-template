@@ -1,8 +1,3 @@
-package txnitemplate
-
-import TxniTemplateBuild
-
-
 data class ModData (
     val id : String,
     val name : String,

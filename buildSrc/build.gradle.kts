@@ -3,6 +3,7 @@
 plugins {
     `java-gradle-plugin`
     `kotlin-dsl`
+    `maven-publish`
     id("me.modmuss50.mod-publish-plugin") version "0.6.3" apply false
 }
 

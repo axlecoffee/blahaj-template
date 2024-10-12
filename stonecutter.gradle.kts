@@ -20,6 +20,11 @@ stonecutter registerChiseled tasks.register("chiseledBuildAndCollect", stonecutt
     ofTask("buildAndCollect")
 }
 
+stonecutter registerChiseled tasks.register("chiseledBuildAndCopyToModrinth", stonecutter.chiseled) {
+    group = "project"
+    ofTask("buildAndCopyToModrinth")
+}
+
 stonecutter registerChiseled tasks.register("chiseledPublishMods", stonecutter.chiseled) {
     group = "project"
     ofTask("publishMods")

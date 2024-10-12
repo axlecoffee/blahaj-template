@@ -1,22 +1,23 @@
-﻿import org.gradle.kotlin.dsl.DependencyHandlerScope
+﻿import org.gradle.api.artifacts.dsl.DependencyHandler
+import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 interface TxniTemplateSettings {
-    val depsHandler : DependencyHandler
-    val publishHandler : PublishDependencyHandler
+    val depsHandler : TxniDependencyHandler
+    val publishHandler : TxniPublishDependencyHandler
 }
 
 
-interface DependencyHandler {
+interface TxniDependencyHandler {
     fun modrinth(name: String, dep: Any?) = "maven.modrinth:$name:$dep"
 
-    fun addGlobal(deps: DependencyHandlerScope)
-    fun addFabric(deps: DependencyHandlerScope)
-    fun addForge(deps: DependencyHandlerScope)
-    fun addNeo(deps: DependencyHandlerScope)
+    fun addGlobal(mod : ModData, deps: DependencyHandler)
+    fun addFabric(mod : ModData, deps: DependencyHandler)
+    fun addForge(mod : ModData, deps: DependencyHandler)
+    fun addNeo(mod : ModData, deps: DependencyHandler)
 }
 
-interface PublishDependencyHandler {
-    fun addShared(deps: DependencyContainer)
-    fun addCurseForge(deps: DependencyContainer)
-    fun addModrinth(deps: DependencyContainer)
+interface TxniPublishDependencyHandler {
+    fun addShared(mod : ModData, deps: DependencyContainer)
+    fun addCurseForge(mod : ModData, deps: DependencyContainer)
+    fun addModrinth(mod : ModData, deps: DependencyContainer)
 }
