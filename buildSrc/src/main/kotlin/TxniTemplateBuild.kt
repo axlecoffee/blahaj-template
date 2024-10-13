@@ -18,6 +18,7 @@ import org.gradle.api.tasks.compile.JavaCompile
 import org.gradle.language.jvm.tasks.ProcessResources
 import java.io.File
 import me.modmuss50.mpp.ModPublishExtension;
+import me.modmuss50.mpp.platforms.modrinth.Modrinth
 import net.fabricmc.loom.api.LoomGradleExtensionAPI
 import org.gradle.api.JavaVersion
 import org.gradle.api.publish.PublishingExtension
@@ -61,14 +62,14 @@ open class TxniTemplateBuild internal constructor(val project: Project)  {
         // The manifold Gradle plugin version. Update this if you update your IntelliJ Plugin!
         project.extensions.getByType<ManifoldExtension>().apply { manifoldVersion = "2024.1.34" }
 
+
         // Loom config
         project.loom(utils.loomSetup(this))
-
         // Dependencies
         DependencyHandlerScope.of(project.dependencies).apply(utils.dependencies(this))
-
         // Tasks
         project.tasks.apply(utils.tasks(this))
+
 
         project.sourceSets {
             main {
@@ -111,6 +112,7 @@ open class TxniTemplateBuild internal constructor(val project: Project)  {
                 val deps = DependencyContainer(null, this)
                 settings.publishHandler.addModrinth(mod, deps)
                 settings.publishHandler.addShared(mod, deps)
+                addTxniDeps(deps)
             }
 
             curseforge {
@@ -120,10 +122,16 @@ open class TxniTemplateBuild internal constructor(val project: Project)  {
                 val deps = DependencyContainer(this, null)
                 settings.publishHandler.addCurseForge(mod, deps)
                 settings.publishHandler.addShared(mod, deps)
+                addTxniDeps(deps)
             }
         })
 
         project.extensions.getByType<PublishingExtension>().apply(utils.mavenPublish(this))
+    }
+
+    private fun addTxniDeps(deps: DependencyContainer) {
+        if (setting("options.txnilib"))
+            deps.requires("txnilib")
     }
 
 

@@ -38,11 +38,6 @@ val templateSettings = object : TxniTemplateSettings {
 	}
 }
 
-
-// ---------------TxniTemplate Build Script---------------- //
-//   (only edit below this if you know what you're doing)
-// -------------------------------------------------------- //
-
 plugins {
 	`maven-publish`
 	txnitemplate
@@ -54,9 +49,6 @@ plugins {
 	id("me.modmuss50.mod-publish-plugin")
 	id("systems.manifold.manifold-gradle-plugin")
 }
-
-// The manifold Gradle plugin version. Update this if you update your IntelliJ Plugin!
-//manifold { manifoldVersion = "2024.1.34" }
 
 txnitemplate {
 	sc = stonecutter
@@ -76,4 +68,8 @@ repositories {
 	maven("https://raw.githubusercontent.com/Fuzss/modresources/main/maven/")
 	maven("https://maven.parchmentmc.org")
 	maven("https://maven.su5ed.dev/releases")
+	maven("https://maven.txni.dev/releases")
+	maven("https://maven.su5ed.dev/releases")
+	maven("https://maven.fabricmc.net")
+	maven("https://maven.shedaniel.me/")
 }

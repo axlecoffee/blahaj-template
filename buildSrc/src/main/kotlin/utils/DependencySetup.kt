@@ -28,6 +28,9 @@ fun dependencies(template : TxniTemplateBuild): (DependencyHandlerScope).() -> U
         parchment("org.parchmentmc.data:parchment-$parchmentVersion@zip")
     })
 
+    if (setting("options.txnilib"))
+        modImplementation("toni.txnilib:${mod.loader}-${mod.mcVersion}:${project.properties["options.txnilib_version"]}")
+
     settings.depsHandler.addGlobal(mod, dependencies)
 
     if (mod.isFabric) {

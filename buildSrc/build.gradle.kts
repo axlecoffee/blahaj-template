@@ -25,6 +25,9 @@ repositories {
     maven("https://maven.kikugie.dev/snapshots")
     maven("https://maven.kikugie.dev/releases")
     maven("https://raw.githubusercontent.com/Fuzss/modresources/main/maven/")
+    maven("https://maven.txni.dev/releases")
+    maven("https://maven.su5ed.dev/releases")
+    maven("https://maven.shedaniel.me/")
 }
 
 dependencies {

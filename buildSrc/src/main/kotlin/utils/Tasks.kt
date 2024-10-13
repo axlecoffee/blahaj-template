@@ -15,6 +15,7 @@ import org.gradle.kotlin.dsl.withType
 import org.gradle.language.jvm.tasks.ProcessResources
 import java.io.File
 import TxniTemplateBuild
+import org.gradle.api.tasks.JavaExec
 
 fun tasks(template : TxniTemplateBuild) : TaskContainer.() -> Unit = { template.apply {
     named<ProcessResources>("processResources") {
@@ -138,6 +139,8 @@ fun tasks(template : TxniTemplateBuild) : TaskContainer.() -> Unit = { template.
 
         project.rootProject.tasks.register("runActive") {
             group = "project"
+
+
             dependsOn(named("runClient"))
         }
     }
