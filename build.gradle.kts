@@ -1,3 +1,6 @@
+import toni.blahaj.*
+import toni.blahaj.api.*
+
 val templateSettings = object : TxniTemplateSettings {
 	// -------------------- Dependencies ---------------------- //
 	override val depsHandler: TxniDependencyHandler get() = object : TxniDependencyHandler {
@@ -40,8 +43,8 @@ val templateSettings = object : TxniTemplateSettings {
 
 plugins {
 	`maven-publish`
-	txnitemplate
 	application
+	id("toni.blahaj") version "1.0.4"
 	kotlin("jvm")
 	kotlin("plugin.serialization")
 	id("dev.kikugie.j52j") version "1.0"
@@ -50,7 +53,7 @@ plugins {
 	id("systems.manifold.manifold-gradle-plugin")
 }
 
-txnitemplate {
+blahaj {
 	sc = stonecutter
 	settings = templateSettings
 	init()
@@ -58,17 +61,17 @@ txnitemplate {
 
 // Dependencies
 repositories {
-	exclusiveMaven("https://www.cursemaven.com", "curse.maven")
-	exclusiveMaven("https://api.modrinth.com/maven", "maven.modrinth")
-	exclusiveMaven("https://thedarkcolour.github.io/KotlinForForge/", "thedarkcolour")
+	maven("https://www.cursemaven.com")
+	maven("https://api.modrinth.com/maven")
+	maven("https://thedarkcolour.github.io/KotlinForForge/")
 	maven("https://maven.kikugie.dev/releases")
+	maven("https://maven.txni.dev/releases")
 	maven("https://jitpack.io")
 	maven("https://maven.neoforged.net/releases/")
 	maven("https://maven.terraformersmc.com/releases/")
 	maven("https://raw.githubusercontent.com/Fuzss/modresources/main/maven/")
 	maven("https://maven.parchmentmc.org")
 	maven("https://maven.su5ed.dev/releases")
-	maven("https://maven.txni.dev/releases")
 	maven("https://maven.su5ed.dev/releases")
 	maven("https://maven.fabricmc.net")
 	maven("https://maven.shedaniel.me/")
