@@ -9,6 +9,7 @@ import java.util.function.Supplier;
 
 import toni.examplemod.ExampleMod;
 import toni.lib.config.ConfigBase;
+import com.electronwill.nightconfig.core.UnmodifiableConfig;
 
 #if FABRIC
     import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -90,15 +91,23 @@ public class AllConfigs {
             registration.accept(pair.getKey(), pair.getValue().specification);
     }
 
-    #if FABRIC
+    #if FABRIC 
     public static void generateTranslations(FabricLanguageProvider.TranslationBuilder translationBuilder) {
         var existing = new HashSet<String>();
 
         for (Entry<ModConfig.Type, ConfigBase> pair : CONFIGS.entrySet())
         {
-            for (var entry : pair.getValue().specification.getSpec().entrySet()) {
-                if (existing.add(entry.getKey()))
-                    translationBuilder.add(ExampleMod.ID + ".configuration." + entry.getKey(), entry.getKey());
+            addEntrySetTranslations(existing, pair.getValue().specification.getSpec().entrySet(), translationBuilder);
+        }
+    }
+
+    public static void addEntrySetTranslations(HashSet<String> existing, Set<? extends UnmodifiableConfig.Entry> config, FabricLanguageProvider.TranslationBuilder translationBuilder) {
+        for (var entry : config) {
+            if (existing.add(entry.getKey()))
+                translationBuilder.add(ExampleMod.ID + ".configuration." + entry.getKey(), entry.getKey());
+
+            if (entry.getValue() instanceof com.electronwill.nightconfig.core.AbstractConfig children) {
+                addEntrySetTranslations(existing, children.entrySet(), translationBuilder);
             }
         }
     }
