@@ -65,7 +65,7 @@ public class ExampleMod #if FABRIC implements ModInitializer, ClientModInitializ
             ModLoadingContext.get().registerConfig(type, spec);
             #elif NEO
             modContainer.registerConfig(type, spec);
-            modContainer.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
+            //modContainer.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
             #endif
         });
         #endif
