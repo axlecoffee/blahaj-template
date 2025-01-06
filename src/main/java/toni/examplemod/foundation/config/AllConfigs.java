@@ -83,7 +83,9 @@ public class AllConfigs {
     }
 
     public static void register(BiConsumer<ModConfig.Type, #if after_21_1 ModConfigSpec #else ForgeConfigSpec #endif> registration) {
-        client = register(CClient::new, ModConfig.Type.CLIENT);
+        if (!PlatformUtils.isDedicatedServer())
+            client = register(CClient::new, ModConfig.Type.CLIENT);
+        
         common = register(CCommon::new, ModConfig.Type.COMMON);
         server = register(CServer::new, ModConfig.Type.SERVER);
 
