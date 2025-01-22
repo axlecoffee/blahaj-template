@@ -1,6 +1,12 @@
 plugins {
+	kotlin("jvm") version "2.0.0"
+	kotlin("plugin.serialization") version "2.0.0"
+	id("maven-publish")
+	id("application")
+	id("dev.architectury.loom")// version "1.7-SNAPSHOT"
+	id("me.modmuss50.mod-publish-plugin")
+	id("systems.manifold.manifold-gradle-plugin")
 	id("toni.blahaj")
-	id("dev.architectury.loom")
 }
 
 blahaj {
