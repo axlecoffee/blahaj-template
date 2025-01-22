@@ -1,10 +1,17 @@
 plugins {
-	id("toni.blahaj") version "1.0.55"
+	id("toni.blahaj")
 	id("dev.architectury.loom")
 }
 
 blahaj {
-	settings {
+	config {
+		// yarn()
+		// versionedAccessWideners()
+	}
+	setup {
+		txnilib("1.0.22")
+		forgeConfig()
+
 		/* access Gradle's DependencyHandler
 		deps.modImplementation("maven:modrinth:sodium:mc$mc-0.6.5-$loader")
 

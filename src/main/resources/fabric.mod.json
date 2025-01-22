@@ -26,7 +26,7 @@
 		]
 	},
 	"mixins": [
-		"mixins.${id}.json"
+		"mixins.${mixinid}.json"
 	],
 	"custom": {
 		"modmenu": {
