@@ -1,19 +1,20 @@
 plugins {
-	id("toni.blahaj") version "1.0.45"
+	id("toni.blahaj") version "1.0.55"
 	id("dev.architectury.loom")
 }
 
 blahaj {
 	settings {
-		// access Gradle's DependencyHandler
+		/* access Gradle's DependencyHandler
 		deps.modImplementation("maven:modrinth:sodium:mc$mc-0.6.5-$loader")
+
 		// configure Curseforge & Modrinth publish settings
 		incompatibleWith("optifine")
+
 		// add mods with Blahaj's fluent interface
 		addMod("sodiumextras")
 			.modrinth("sodium-extras") // override with Modrinth URL slug
 			.addPlatform("1.21.1-neoforge", "neoforge-1.21.1-1.0.7")
-			.addPlatform("1.21.1-fabric", "fabric-1.21.1-1.0.7") { required() }
+			.addPlatform("1.21.1-fabric", "fabric-1.21.1-1.0.7") { required() } */
 	}
 }
-
