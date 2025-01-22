@@ -10,6 +10,7 @@ import java.util.function.Supplier;
 
 import toni.examplemod.ExampleMod;
 import toni.lib.config.ConfigBase;
+import toni.lib.utils.PlatformUtils;
 import com.electronwill.nightconfig.core.UnmodifiableConfig;
 
 #if FABRIC
