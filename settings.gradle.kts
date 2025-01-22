@@ -1,5 +1,3 @@
-import dev.kikugie.stonecutter.StonecutterSettings
-
 pluginManagement {
 	repositories {
 		mavenCentral()
@@ -15,21 +13,26 @@ pluginManagement {
 }
 
 plugins {
-	id("dev.kikugie.stonecutter") version "0.5-alpha.4"
+	id("dev.kikugie.stonecutter") version "0.6-alpha.5"
 }
 
-extensions.configure<StonecutterSettings> {
+stonecutter {
 	kotlinController = true
 	centralScript = "build.gradle.kts"
-	shared {
+
+	create(rootProject) {
 		fun mc(version: String, vararg loaders: String) {
-			for (it in loaders) vers("$version-$it", version)
+			for (it in loaders)
+			{
+				val versStr = "$version-$it";
+				mkdir("versions/$versStr")
+				vers(versStr, version)
+			}
 		}
 
 		mc("1.20.1", "fabric" , "forge")
 		mc("1.21.1", "fabric" , "neoforge")
 	}
-	create(rootProject)
 }
 
 rootProject.name = "TxniTemplate"

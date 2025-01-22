@@ -23,3 +23,5 @@ mandatory=true
 versionRange="${mc}"
 ordering="NONE"
 side="BOTH"
+
+${depends}

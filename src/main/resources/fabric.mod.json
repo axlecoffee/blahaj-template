@@ -28,11 +28,6 @@
 	"mixins": [
 		"mixins.${id}.json"
 	],
-	"depends": {
-		"fabricloader": ">=0.15.0",
-		"minecraft": "${mc}",
-		"fabric-api": "*"
-	},
 	"custom": {
 		"modmenu": {
 			"links": {
@@ -40,5 +35,11 @@
 			}
 		}
 	},
-	"accessWidener": "${id}.accesswidener"
+	"accessWidener": "${id}.accesswidener",
+	"depends": {
+		${depends}
+		"fabricloader": ">=0.15.0",
+		"minecraft": "${mc}",
+		"fabric-api": "*"
+	}
 }
