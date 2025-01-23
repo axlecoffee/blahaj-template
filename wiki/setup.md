@@ -2,7 +2,30 @@
 outline: deep
 ---
 
-# Getting Started Using This Template
+# Getting Started Using Blahaj
+
+## Who Can Use This?
+
+The easiest way to use Blahaj is just to [fork my template mod](https://github.com/txnimc/TxniTemplate), which is set up
+with everything you need to use it.
+
+This template is specifically built for the community! I want to encourage more people
+to build mods this way, because it's better for everyone if projects are built with wide loader and version support from the start.
+
+It is MIT licensed and allows anyone to fork and relicense, and it's easy to do so
+if you click the "Use this template" button in the top right corner:
+
+![img.png](assets/usethistemplate.png)
+
+You can also depend on my personal library, [TxniLib](/lib), which contains some multiloader/multiversion
+abstractions that I find helpful. I do my best to document it, though it isn't a top priority.
+
+However, this is definitely a more advanced project setup, and I would not recommend it to someone just getting started
+on mod development. If you are not already familiar with both Forge & Fabric toolchains, events, APIs, etc, you will
+likely have a harder time getting things working because of the barrier to entry inherent with multiloader mods.
+
+With that said, I hope this readme covers most of the things you will need to know, but you can always [contact me on Discord](https://discord.gg/kS7auUeYmc)
+at `toni.toni.chopper` for questions and help setting things up.
 
 ## Configuring Gradle
 

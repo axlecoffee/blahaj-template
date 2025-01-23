@@ -12,7 +12,7 @@ const kotlin2 = JSON.parse(
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   lang: 'en-US',
-  title: "TxniTemplate",
+  title: "Blahaj",
   description: "Minecraft Template Mod & Multiversion Library",
   cleanUrls: true,
   appearance: 'dark',

@@ -14,7 +14,9 @@ pluginManagement {
 
 plugins {
 	id("dev.architectury.loom") version "1.9-SNAPSHOT" apply false
-	id("toni.blahaj") version "1.0.71"
+	kotlin("jvm") version "2.0.0" apply false
+	kotlin("plugin.serialization") version "2.0.0" apply false
+	id("toni.blahaj") version "1.0.78"
 	id("dev.kikugie.stonecutter") version "0.6-alpha.5"
 }
 

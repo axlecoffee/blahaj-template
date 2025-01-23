@@ -15,9 +15,9 @@ export function applySEO(pageData: PageData) {
   addTag(
     pageData,
     "og:title",
-    pageData.title === "TxniTemplate"
-      ? `TxniTemplate`
-      : `${pageData.title} | TxniTemplate`
+    pageData.title === "Blahaj | TxniTemplate"
+      ? `Blahaj | TxniTemplate`
+      : `${pageData.title} | Blahaj`
   );
 
   addTag(pageData, "og:type", "website");

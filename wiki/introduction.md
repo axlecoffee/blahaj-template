@@ -6,6 +6,43 @@ outline: deep
 
 *Hello, and welcome to multiversion hell!*
 
+## What's in Blahaj?
+
+
+
+
+The [default template](https://github.com/txnimc/TxniTemplate) is set up with the following:
+
+- Fabric, Forge, and NeoForge in one sourceset, using Stonecutter + Manifold preprocessor
+- Preconfigured support for all modern 'LTS' versions, in one sourceset (1.20.1, 1.21 by default, other versions can be added)
+- Mojang Mappings with Parchment
+- Mixins for all platforms
+- Automatic dependency injection into `fabric.mods.json`, `mods.toml`, and Curseforge/Modrinth release dependencies.
+- Access Wideners (automatically converted to Forge Access Transformers)
+- GitHub Actions workflows to automatically deploy published jars
+
+## Helper Tasks
+
+Additionally, Blahaj provides some helper tasks for automating common mod dev things:
+
+- `renameExampleMod`, which you can run once after forking the template and editing gradle.properties to instantly get started.
+- `bumpVersionAndChangelog`, which will ask you for a version type (major, minor, patch) and changelog, bump the gradle.properties, and automatically append CHANGELOG.md
+- `copyToModrinthLauncher`, which will run a chiseled buildAll and copy the files to designated Modrinth App profiles for testing ([more on that here](/modrinthdebugging))
+- `publishAllRelease`, a standard mod-publish task, which will automatically publish all versions to Modrinth and Curseforge.
+- `publishAllMaven`, which does the same automated publishing of all versions, but for your own Maven. I recommend [Reposilite.](https://reposilite.com/)
+
+## Optional Features
+
+Blahaj provides full opt-in support for the following, each activated with one line in Gradle setup:
+
+- TxniLib, which provides runtime multiversion abstractions
+- Cross-platform Forge Config (FC API Port)
+- Yarn mappings (smh)
+- Version specific or platform specific Access Wideners
+- Version specific or platform specific Mixin configs
+- Sodium and Iris in your dev instance
+- EMI in your dev instance
+
 ## Why Multiversion?
 
 This template combines two different things---*multiversion* and *multiloader*.
@@ -27,40 +64,3 @@ You've probably heard of Architectury, which is a multiloader Gradle setup that 
 sourcesets. However, it's just simply cleaner to combine both, since they can both be set up with preprocessors to build from a single `src` directory.
 
 Note that you don't actually need to do both multiloader and multiversion---you can remove one or the other and this setup will work the same.
-
-## What's in Here?
-
-This template uses [Stonecutter](https://stonecutter.kikugie.dev/), and is set up with the following:
-
-- Documentation for every part of the build toolchain
-- Fabric, Forge, and NeoForge in one sourceset
-- Preconfigured support for all modern 'LTS' versions, in one sourceset (1.18.2, 1.19.2, 1.20.1, 1.21 by default, other versions can be added)
-- GitHub Actions workflows to automatically deploy published jars
-- Mojang Mappings with Parchment
-- Mixins for both platforms
-- Access Wideners (automatically converted to Forge Access Transformers)
-- Cross-platform Forge Config (FC API Port)
-- Cross-platform Registrate
-
-In addition to all that, I've also set up some helper scripts to make forking this template easier (more on that below),
-and set up Manifold preprocessor directives (which are much easier to use than ReplayMod preprocessor).
-
-## Who Can Use This?
-
-This template is specifically built for the community! I want to encourage more people
-to build mods this way, because it's better for everyone if projects are built with wide loader and version support from the start.
-
-It is MIT licensed and allows anyone to fork and relicense, and it's easy to do so 
-if you click the "Use this template" button in the top right corner:
-
-![img.png](assets/usethistemplate.png)
-
-You can also depend on my personal library, [TxniLib](/lib), which contains some multiloader/multiversion
-abstractions that I find helpful. I do my best to document it, though it isn't a top priority.
-
-However, this is definitely a more advanced project setup, and I would not recommend it to someone just getting started
-on mod development. If you are not already familiar with both Forge & Fabric toolchains, events, APIs, etc, you will
-likely have a harder time getting things working because of the barrier to entry inherent with multiloader mods.
-
-With that said, I hope this readme covers most of the things you will need to know, but you can always [contact me on Discord](https://discord.gg/kS7auUeYmc)
-at `toni.toni.chopper` for questions and help setting things up.
