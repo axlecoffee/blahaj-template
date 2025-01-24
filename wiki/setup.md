@@ -4,8 +4,6 @@ outline: deep
 
 # Getting Started Using Blahaj
 
-## Who Can Use This?
-
 The easiest way to use Blahaj is just to [fork my template mod](https://github.com/txnimc/TxniTemplate), which is set up
 with everything you need to use it.
 
@@ -19,10 +17,6 @@ if you click the "Use this template" button in the top right corner:
 
 You can also depend on my personal library, [TxniLib](/lib), which contains some multiloader/multiversion
 abstractions that I find helpful. I do my best to document it, though it isn't a top priority.
-
-However, this is definitely a more advanced project setup, and I would not recommend it to someone just getting started
-on mod development. If you are not already familiar with both Forge & Fabric toolchains, events, APIs, etc, you will
-likely have a harder time getting things working because of the barrier to entry inherent with multiloader mods.
 
 With that said, I hope this readme covers most of the things you will need to know, but you can always [contact me on Discord](https://discord.gg/kS7auUeYmc)
 at `toni.toni.chopper` for questions and help setting things up.
@@ -60,6 +54,40 @@ Just set the above values, run the `renameExampleProject` Gradle task, and you'r
 
 You will only get IntelliSense for one version at a time, but this can be changed by using the `Set active project to version-loader` 
 gradle helper tasks under the `stonecutter` folder in the root project.
+
+
+## Versioned Dependencies
+
+The main difference from an typical setup is that the main `build.gradle.kts` Gradle script handles both Fabric
+and Forge builds for every game version. This is one of the main hurdles of multiversion---managing dependencies for every
+target in one script.
+
+Because of this, you will need to ensure that your Gradle scripts are written to use the mod and version data attached to the `BlahajSettings` 
+controller, such as `mod.isFabric` or the `mc` and `loader` strings.
+
+Stonecutter also provides a simple way to create versioned `gradle.properties`, which is actually where the Loom platform is configured.
+In the root project's `gradle.properties`, set any property you want to be versioned to `[VERSIONED]`:
+
+::: code-group
+```md [gradle.properties]
+# ----------Dependencies------------#
+deps.fapi=[VERSIONED]
+# ----------------------------------#
+```
+:::
+
+Most of the built-in Blahaj versions, for things like Fabric API version and Forge loader version, can be overridden by setting these versioned
+properties in the `versions/gradle.properties` files.
+
+::: code-group
+```md [versions/1.20.1-fabric/gradle.properties]
+loom.platform=fabric
+
+# ----------Dependencies------------#
+deps.fapi=0.99.4+1.21
+# ----------------------------------#
+```
+:::
 
 
 ## Using Manifold To Implement Version-Specific Code

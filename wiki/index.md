@@ -4,7 +4,6 @@ layout: home
 
 hero:
   name: "Blahaj"
-  text: "TxniTemplate"
   image:
     src: /assets/blahaj-hero.png
     alt: TxniTemplate
@@ -14,14 +13,14 @@ features:
   - title: Modern Template Mod
     icon: 🔥
     details: Get started right away developing for all modloaders and game versions!
-    link: /introduction/
+    link: /setup/
     linkText: Get Started 
 
   - title: Simple Mod Setup
     icon: 📝
     details: Preconfigured with integrations with popular mods, Blahaj acts as an authoritative version source for common setup tasks.
-    link: /dependencies/
-    linkText: Set up dependencies
+    link: /introduction/
+    linkText: How it works
     
   - title: Stonecutter Multiversion with Manifold
     icon: 🔄️

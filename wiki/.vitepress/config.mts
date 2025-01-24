@@ -43,20 +43,12 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: 'Template Setup',
+        text: 'Blahaj Setup',
         items: [
           { text: 'Introduction', link: '/introduction' },
           { text: 'Getting Started', link: '/setup' },
-          { text: 'Multiversion Tips', link: '/tips' },
-          { text: 'IntelliJ Setup', link: '/intellij' },
-          { text: 'Dependencies', link: '/dependencies' },
-          { text: 'Flavors', link: '/flavors' },
-        ]
-      },
-      {
-        text: 'Library Usage',
-        items: [
-          { text: 'TxniLib', link: '/lib' }
+          { text: 'How Blahaj Works', link: '/crashcourse' },
+          { text: 'IntelliJ Setup', link: '/intellij' }
         ]
       },
       {

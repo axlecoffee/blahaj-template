@@ -2,14 +2,43 @@
 outline: deep
 ---
 
-# Introduction to Multiversion Modding
+# Introduction to Blahaj
 
-*Hello, and welcome to multiversion hell!*
+Blahaj provides a fully automated mod dev experience for multiversion modding. Almost everything is handled behind the 
+scenes in the plugin, including Loom setup, registering tasks and build settings, and adding default dependencies. 
+
+However, you still need to write multiversion code--so if you are not already familiar with both
+Forge & Fabric toolchains, events, APIs, etc, it will likely still require extra effort compared to regular single-version modding.
+
+Most typical project setup tasks are simply just adding dependencies to your project though, so ideally, Blahaj should handle 
+everything else in one place, removing the need for managing dozens of build scripts for all your mods. 
+The plugin is built with this in mind, so the three Gradle script files Blahaj uses are made as short as possible:
+- `settings.gradle.kts`, which loads first and defines some of the required plugins, and initializes Blahaj. 
+You'll only need to touch this if you bump plugin versions or add new Minecraft versions in Blahaj setup.
+- `stonecutter.gradle.kts`, which is the root project controller, which you don't have to touch at all. 
+- `build.gradle.kts`, which is the main file you'll configure everything in.
+
+![blahajsetup.png](assets/blahajsetup.png)
+
+Most of what you will need to do can be done from Blahaj's settings block, where you can add multiversion mods using 
+the `addMod()` fluent API, configure settings, and access the Gradle `dependency` context directly. 
+
+![blahajsettings.png](assets/blahajsettings.png)
+
+For example, this script here adds Sodium directly with Gradle `deps` (there is a helper method for this though) 
+using `$mc` and `loader` injections in the string template, makes the mod on Curseforge/Modrinth as incompatible with Optifine,
+and uses `addMod("sodiumextras")` to add that mod as a dependency.
+
+In the `BlahajDependency` chain, you must define a binding for it to pull the mod from, and version numbers for each platform, so it can
+invoke the binding for each applicable project and fetch the mod. In the example above, Sodium Extras is being pulled from Modrinth (with a custom
+slug, because it doesn't match the mod ID) and then being configured with a unique version number for each platform. You can also pass a callback,
+which is only invoked on the matching platform--in this case, used to mark it as required only on Fabric.
+
+If you want to customize the underlying build process, you can still do so using regular Gradle project utilities, but you may be a little more 
+restricted by the streamlined experience. Blahaj tries to provide options and toggles for most things. If you need something tweaked, you
+can submit a PR, or you can always [contact me on Discord](https://discord.gg/kS7auUeYmc) at `toni.toni.chopper` for questions and help setting things up.
 
 ## What's in Blahaj?
-
-
-
 
 The [default template](https://github.com/txnimc/TxniTemplate) is set up with the following:
 
@@ -42,25 +71,3 @@ Blahaj provides full opt-in support for the following, each activated with one l
 - Version specific or platform specific Mixin configs
 - Sodium and Iris in your dev instance
 - EMI in your dev instance
-
-## Why Multiversion?
-
-This template combines two different things---*multiversion* and *multiloader*.
-
-Traditionally, if you want to support multiple Minecraft versions, you would need to create multiple Git branches for each version.
-This can be a major pain if you are actively maintaining each one, so instead, *multiversion* Minecraft mods 
-build all jars from a single branch, often called a *monorepo*.
-
-Of course, you still need some way to separate version specific code. This is typically done with some kind of *preprocessor*,
-which enables conditional compilation so that each Minecraft version target only includes the code that works for it.
-While this makes Gradle scripts more complicated to set up and understand, it massively simplifies updates across many supported versions.
-Fortunately, setting up Gradle is largely a one time operation, and this template takes care of most of it.
-
-Likewise, if you wanted to support both Forge and Fabric, you would also need separated Git branches, and this can compound 
-the maintenance problem when trying to support multiple versions as well. To make this easier, **multiloader** Minecraft mods build from one repo,
-typically with a lot of shared code (since both modloaders are just Minecraft!). 
-
-You've probably heard of Architectury, which is a multiloader Gradle setup that uses separated `common`, `forge`, and `fabric`
-sourcesets. However, it's just simply cleaner to combine both, since they can both be set up with preprocessors to build from a single `src` directory.
-
-Note that you don't actually need to do both multiloader and multiversion---you can remove one or the other and this setup will work the same.
