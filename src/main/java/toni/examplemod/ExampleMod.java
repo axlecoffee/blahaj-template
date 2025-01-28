@@ -1,5 +1,6 @@
 package toni.examplemod;
 
+import net.minecraft.world.level.block.Blocks;
 import toni.examplemod.foundation.config.AllConfigs;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

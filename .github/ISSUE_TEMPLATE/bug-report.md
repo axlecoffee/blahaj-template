@@ -3,7 +3,7 @@ name: Bug Report
 about: Link your log files!
 title: ''
 labels: bug
-assignees: nthxny
+assignees: TxniTxniChopper
 
 ---
 
