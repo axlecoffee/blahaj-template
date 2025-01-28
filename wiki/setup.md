@@ -15,7 +15,7 @@ if you click the "Use this template" button in the top right corner:
 
 ![img.png](assets/usethistemplate.png)
 
-You can also depend on my personal library, [TxniLib](/lib), which contains some multiloader/multiversion
+You can also depend on my personal library, TxniLib, which contains some multiloader/multiversion
 abstractions that I find helpful. I do my best to document it, though it isn't a top priority.
 
 With that said, I hope this readme covers most of the things you will need to know, but you can always [contact me on Discord](https://discord.gg/kS7auUeYmc)
