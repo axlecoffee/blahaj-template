@@ -25,5 +25,5 @@ when having issues porting code to other versions.
 ## [NeoForge 1.21 Changes](https://neoforged.net/news/21.0release/#enum-extensions-rework-introduced-in-neoforge-21010-beta)
 Besides package renaming and some event changes, the most notable breaking changes are the switch to Fabric mixin and vanilla registries.
 
-## [PNG to SVG Converter](https://www.adobe.com/express/feature/image/convert/png-to-svg)
+## [PNG to SVG Converter](https://www.freeconvert.com/png-to-svg)
 For IntelliJ project icons.
