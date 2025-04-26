@@ -9,7 +9,11 @@ import org.apache.logging.log4j.Logger;
 #if FABRIC
     import net.fabricmc.api.ClientModInitializer;
     import net.fabricmc.api.ModInitializer;
-    #if after_21_1
+    #if mc >= 215
+    import fuzs.forgeconfigapiport.fabric.api.v5.ConfigRegistry;
+    import fuzs.forgeconfigapiport.fabric.api.v5.client.ConfigScreenFactoryRegistry;
+    import net.neoforged.neoforge.client.gui.ConfigurationScreen;
+    #elif after_21_1
     import fuzs.forgeconfigapiport.fabric.api.neoforge.v4.NeoForgeConfigRegistry;
     import fuzs.forgeconfigapiport.fabric.api.neoforge.v4.client.ConfigScreenFactoryRegistry;
     import net.neoforged.neoforge.client.gui.ConfigurationScreen;
@@ -77,7 +81,9 @@ public class ExampleMod #if FABRIC implements ModInitializer, ClientModInitializ
     public void onInitialize() {
         #if FABRIC
             AllConfigs.register((type, spec) -> {
-                #if AFTER_21_1
+                #if mc >= 215
+                ConfigRegistry.INSTANCE.register(ExampleMod.ID, type, spec);
+                #elif mc >= 211
                 NeoForgeConfigRegistry.INSTANCE.register(ExampleMod.ID, type, spec);
                 #else
                 ForgeConfigRegistry.INSTANCE.register(ExampleMod.ID, type, spec);

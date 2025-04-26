@@ -10,6 +10,7 @@ blahaj {
 	setup {
 		txnilib("1.0.23")
 		forgeConfig()
+		conditionalMixin()
 
 		/* access Gradle's DependencyHandler
 		deps.modImplementation("maven:modrinth:sodium:mc$mc-0.6.5-$loader")
