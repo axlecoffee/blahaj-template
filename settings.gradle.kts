@@ -1,5 +1,6 @@
 pluginManagement {
 	repositories {
+		mavenLocal()
 		mavenCentral()
 		gradlePluginPortal()
 		maven("https://maven.fabricmc.net/")
@@ -8,24 +9,26 @@ pluginManagement {
 		maven("https://maven.neoforged.net/releases/")
 		maven("https://maven.kikugie.dev/snapshots")
 		maven("https://maven.kikugie.dev/releases")
-		maven("https://maven.txni.dev/releases")
+		maven("https://maven.axle.coffee/releases")
 	}  
 }
 
 plugins {
-	id("dev.architectury.loom") version "1.10-SNAPSHOT" apply false
-	kotlin("jvm") version "2.0.0" apply false
-	kotlin("plugin.serialization") version "2.0.0" apply false
-	id("toni.blahaj") version "2.0.17"
-	id("dev.kikugie.stonecutter") version "0.6-alpha.5"
+	id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+	id("dev.architectury.loom") version "1.14-SNAPSHOT" apply false
+	id("dev.architectury.loom-no-remap") version "1.14-SNAPSHOT" apply false
+	kotlin("jvm") version "2.1.21" apply false
+	kotlin("plugin.serialization") version "2.1.21" apply false
+	id("toni.blahaj") version "3.0.0"
+	id("dev.kikugie.stonecutter") version "0.9.1"
 }
 
 blahaj {
 	init(rootProject) {
-        mc("1.20.1", "fabric", "forge")
+		mc("1.20.1", "fabric", "forge")
 		mc("1.21.1", "fabric", "neoforge")
-		mc("1.21.4", "fabric")
-		mc("1.21.5", "fabric")
+		mc("1.21.4", "fabric", "neoforge")
+		mc("26.1.2", "fabric", "neoforge")
 	}
 }
 
