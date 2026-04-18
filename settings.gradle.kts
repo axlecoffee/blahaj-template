@@ -13,10 +13,10 @@ pluginManagement {
 
 plugins {
 	id("dev.architectury.loom") version "1.10-SNAPSHOT" apply false
-	kotlin("jvm") version "2.3.0" apply false
-	kotlin("plugin.serialization") version "2.3.0" apply false
+	kotlin("jvm") version "2.3.10" apply false
+	kotlin("plugin.serialization") version "2.3.10" apply false
 	id("coffee.axle.blahaj") version "3.0.2"
-	id("dev.kikugie.stonecutter") version "0.6-alpha.5"
+	id("dev.kikugie.stonecutter") version "0.9.1"
 }
 
 blahaj {
