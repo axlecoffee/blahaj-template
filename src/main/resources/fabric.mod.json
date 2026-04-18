@@ -29,7 +29,6 @@
 			}
 		}
 	},
-	"accessWidener": "${id}.accesswidener",
 	"depends": {
 		${depends}
 		"fabricloader": ">=0.15.0",
