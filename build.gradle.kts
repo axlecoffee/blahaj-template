@@ -8,7 +8,7 @@ blahaj {
 		// versionedAccessWideners()
 	}
 	setup {
-		// mocha("1.0.0")
+		mocha("0.1.0")
 		sodium()
 		iris()
 		devauth()

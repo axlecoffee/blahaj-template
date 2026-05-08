@@ -5,6 +5,7 @@ package coffee.axle.examplemod
 
 import net.fabricmc.api.ModInitializer
 import org.slf4j.LoggerFactory
+import coffee.axle.mocha.compat.ChatCompat
 
 object ExampleMod : ModInitializer {
 
@@ -13,5 +14,6 @@ object ExampleMod : ModInitializer {
 
     override fun onInitialize() {
         LOGGER.info("ExampleMod initialized")
+        LOGGER.info(ChatCompat.platformName())
     }
 }
