@@ -2,9 +2,6 @@
 // SPDX-FileCopyrightText: Linnea Gräf <nea@nea.moe> and Firmament Contributors
 // This file is derived from Firmament (https://github.com/FirmamentMC/Firmament)
 
-// SPDX-License-Identifier: AGPL-3.0-or-later
-// SPDX-FileCopyrightText: Axle Coffee <contact@axle.coffee> and CatBoyAddons Contributors
-// This file is derived from CatBoyAddons (https://github.com/axlecoffee/CatboyAddons)
 
 package coffee.axle.examplemod.init;
 

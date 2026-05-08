@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-// SPDX-FileCopyrightText: Axle Coffee <contact@axle.coffee>
+// SPDX-FileCopyrightText: Axle Duggan <contact@axle.coffee>
 
 package coffee.axle.examplemod
 

@@ -13,12 +13,12 @@ pluginManagement {
 }
 
 plugins {
-	id("net.fabricmc.fabric-loom") version "1.15-SNAPSHOT" apply false
-	id("net.fabricmc.fabric-loom-remap") version "1.15-SNAPSHOT" apply false
+	id("net.fabricmc.fabric-loom") version "1.16.1" apply false
+	id("net.fabricmc.fabric-loom-remap") version "1.16.1" apply false
 	id("dev.architectury.loom") version "1.14.473" apply false
 	kotlin("jvm") version "2.3.10" apply false
 	kotlin("plugin.serialization") version "2.3.10" apply false
-	id("coffee.axle.blahaj") version "3.0.4"
+	id("coffee.axle.blahaj") version "3.1.0"
 	id("dev.kikugie.stonecutter") version "0.9.1"
 }
 

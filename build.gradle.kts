@@ -8,14 +8,18 @@ blahaj {
 		// versionedAccessWideners()
 	}
 	setup {
-/* 
+		// mocha("1.0.0")
+		sodium()
+		iris()
+		devauth()
+		mixinExtras()
+		hypixel()
+/*
 		txnilib("1.0.23")
 		forgeConfig()
 		conditionalMixin()
 
 		// access Gradle's DependencyHandler
-
-		deps.modImplementation("maven:modrinth:sodium:mc$mc-0.6.5-$loader")
 
 		// configure Curseforge & Modrinth publish settings
 		incompatibleWith("optifine")
